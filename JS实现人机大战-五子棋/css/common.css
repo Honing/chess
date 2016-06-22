@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+/*人机大战之五子棋*/
+canvas{
+	display:block;
+	margin:50px auto;
+	box-shadow:5px 5px 5px #999;
+	border:1px solid #efefef;
+	}
+
