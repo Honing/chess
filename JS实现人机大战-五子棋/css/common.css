@@ -1,6 +1,15 @@
 @charset "utf-8";
 /* CSS Document */
 /*人机大战之五子棋*/
+body{
+	margin:0;
+	padding:0;
+	}
+img{
+	position:absolute;
+	bottom:10px;
+	right:10px;
+	}
 canvas{
 	display:block;
 	margin:50px auto;
