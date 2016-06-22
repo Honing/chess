@@ -7,4 +7,30 @@ canvas{
 	box-shadow:5px 5px 5px #999;
 	border:1px solid #efefef;
 	}
-
+#tip p{
+	color:#565656;
+	text-align:center;
+	display:block;
+	font-size:16px;
+	lineheight:16px;
+	}
+h1{
+	font-size:28px;
+	lineheifht:28px;
+	}
+#settings{
+	background:#efefef;
+	border-radius:5px;
+	font: 20px/1.5 'Open Sans Condensed',sans-serif;
+	padding:70px 30px;
+	width:160px;
+	height:300px;
+	position:fixed;
+	top:115px;
+	left:0px;
+	float:left;
+	}
+#countTime{
+	margin:0 auto;
+	width:160px;
+	}
