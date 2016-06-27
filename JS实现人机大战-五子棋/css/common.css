@@ -4,11 +4,17 @@
 body{
 	background:url(../image/back.jpg);
 	}
-canvas{
+#chess{
 	display:block;
-	margin:20px auto;
+	/*margin:20px auto;*/
 	box-shadow:5px 5px 5px #999;
-	border:1px solid #efefef;
+	/*border:1px solid #efefef;*/
+	}
+#chessDiv{
+	width:450px;
+	height:450px;
+	margin: 20px auto;
+	position:relative;
 	}
 #tip p{
 	color:#565656;

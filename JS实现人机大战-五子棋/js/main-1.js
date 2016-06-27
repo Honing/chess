@@ -41,6 +41,7 @@ function timeCount(){
 var chess=document.getElementById("chess");
 var context=chess.getContext("2d");
 context.strokeStyle="#bfbfbf";
+var chessDiv=document.getElementById("chessDiv");
 //游戏结束标志
 var gameOver=false;
 //轮流标志
@@ -106,7 +107,8 @@ var oneStep=function(i,j,me){
 			chessBoard[i][j]=2;
 			}
 	/***落子标识，红色三角***/
-	/*lastStep(i*gridWidth+gridWidth/2,j*gridWidth+gridWidth/2);*/
+	$(".triangle").hide();
+	lastStep(i*gridWidth+gridWidth/2-7,j*gridWidth+gridWidth/2-9);
 }
 
 //落子标志
@@ -118,10 +120,13 @@ var oneStep=function(i,j,me){
 	context.lineJoin;
 	
 	}*/
+var index=0;
 var lastStep=function(i,j){
 	var triangle = document.createElement("canvas");
-	triangle.width = 60;
-	triangle.height = 50;
+	triangle.className="triangle";
+	triangle.id="triangle"+index++;
+	triangle.width = 14;
+	triangle.height = 14;
 	triangle.style.position = 'absolute';
 	triangle.style.left = i + 'px';
 	triangle.style.top = j + 'px';
@@ -134,10 +139,13 @@ var lastStep=function(i,j){
 	var cxt = triangle.getContext("2d");
 		cxt.fillStyle = "fe0000";
 		cxt.beginPath();
-		cxt.moveTo(0,3);
-		cxt.lineTo(5,6);
-		cxt.lineTo(5,0);
+		cxt.moveTo(7,0);
+		cxt.lineTo(14,14);
+		cxt.lineTo(0,14);
+		cxt.fillStyle="#fe0000";
 		cxt.fill();
+		
+	chessDiv.appendChild(triangle);
 	}
 
 
