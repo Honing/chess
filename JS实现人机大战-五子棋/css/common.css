@@ -1,9 +1,12 @@
 @charset "utf-8";
 /* CSS Document */
 /*人机大战之五子棋*/
+body{
+	background:url(../image/back.jpg);
+	}
 canvas{
 	display:block;
-	margin:50px auto;
+	margin:20px auto;
 	box-shadow:5px 5px 5px #999;
 	border:1px solid #efefef;
 	}
@@ -32,5 +35,12 @@ h1{
 	}
 #countTime{
 	margin:0 auto;
-	width:160px;
+	width:180px;
 	}
+.hide{
+	display:none;
+	}
+.show{
+	display:block;
+	}
+

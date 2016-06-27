@@ -9,13 +9,14 @@
 <body>
 <h1 align="center">欢迎来到人机对战之五子棋</h1>
 <div id="countTime" class="hide">已下<span id="steps">0</span>手，耗时<span id="min">0</span>分<span id="sec">0</span>秒</div>
-<canvas id="chess" width="450px" height="450px">
-	
+<!--<div id="settings"><p>请选择难度级别：</p><input id="rank1" name="rank" type="radio"> 8x8</input><br/><input id="rank2" type="radio" name="rank" checked="checked">15x15</input><br/><input id="rank3" name="rank" type="radio">19x19</input></div>-->
+
+<audio id="soundEffect" src="sound/chesssound.mp3" preload="preload"></audio>
+<canvas id="chess" width="450px" height="450px">	
 </canvas>
 <div id="tip"><p>请落子</p></div >
-<img src="image/man-machine.png"/>
 <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script> 
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/main-1.js"></script>
 
 </body>
 </html>
