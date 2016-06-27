@@ -306,7 +306,15 @@ var u=0,v=0;
 				myWin[k]=6;
 				if(computerWin[k]==5){
 					clearTimeout(t);
-					window.alert("You lose!Try again!耗时"+Math.floor(timeUsed/60)+"分"+timeUsed%60+"秒");
+					/*window.alert("You lose!Try again!耗时"+Math.floor(timeUsed/60)+"分"+timeUsed%60+"秒");*/
+					var r=confirm("You lose!Try again!耗时"+Math.floor(timeUsed/60)+"分"+timeUsed%60+"秒");
+					if (r==true)
+ 					 {
+					  window.location.reload(true);
+ 					 }
+					else
+ 					 {
+ 					 }
 					gameOver=true;
 					return;
 					}
