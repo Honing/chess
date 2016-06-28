@@ -1,6 +1,18 @@
 // JavaScript Document
-//Wrote By XuYin,last edit: 22 June, 2016
+//Wrote By XuYin,last edit: 24 June, 2016
 /*****************************人机大战之五子棋****************************/
+
+//检查浏览器是否支持canvas
+function canvasSupport() {
+    return !!$('<canvas>')[0].getContext;
+}
+var chessDiv=document.getElementById("chessDiv");
+if(!canvasSupport() ){
+/*chessDiv.innerHTML='<p id="canavsSupport">'+"Sorry,您的浏览器不支持canvas哦！"+'</p>';*/
+chessDiv.innerHTML='<img id="errprPage" src="image/errorPage.png"/>';
+$("#tip").hide();
+}
+
 /***棋盘大小变量***/
 var gridSize=15;
 var totalSize=document.getElementById("chess").height;
@@ -41,11 +53,12 @@ function timeCount(){
 var chess=document.getElementById("chess");
 var context=chess.getContext("2d");
 context.strokeStyle="#bfbfbf";
-var chessDiv=document.getElementById("chessDiv");
 //游戏结束标志
 var gameOver=false;
 //轮流标志
 var me=true;
+
+
 
 //棋盘每个点--是否已经落子
 var chessBoard=[];
