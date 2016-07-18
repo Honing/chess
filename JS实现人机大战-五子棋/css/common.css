@@ -2,7 +2,8 @@
 /* CSS Document */
 /*人机大战之五子棋*/
 body{
-	background:url(../image/back.jpg);
+	background:url(../image/back.jpg)right bottom no-repeat;
+	background-size:cover;
 	}
 #chess{
 	display:block;
