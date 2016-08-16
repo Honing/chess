@@ -2,9 +2,13 @@
 /* CSS Document */
 /*人机大战之五子棋*/
 body{
-	background-image:url(../image/back.jpg);
-	background-size:cover;
-	background-repeat:no-repeat;
+	background:url(../image/back.jpg);
+	}
+#welcome{
+	position:absolute;
+	right:30px;
+	top:10px;
+	font-size:12px;
 	}
 #chess{
 	display:block;
@@ -17,16 +21,6 @@ body{
 	height:450px;
 	margin: 20px auto;
 	position:relative;
-	}
-/*#canavsSupport{
-	font-size:28px;
-	color:#03C;
-	line-height:88px;
-	}*/
-#errprPage{
-	position:absolute;
-	left:80px;
-	top:60px;
 	}
 #tip p{
 	color:#565656;

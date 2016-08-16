@@ -41,7 +41,6 @@ function timeCount(){
 var chess=document.getElementById("chess");
 var context=chess.getContext("2d");
 context.strokeStyle="#bfbfbf";
-var chessDiv=document.getElementById("chessDiv");
 //游戏结束标志
 var gameOver=false;
 //轮流标志
@@ -58,14 +57,13 @@ for(var i=0;i<gridSize;i++){
 	
 //创建棋盘(格线)
 var drawChessBoard=function(){
-	for(var i=1;i<gridSize-1;i++){		
+	for(var i=0;i<gridSize;i++){		
 	context.moveTo(i*gridWidth+gridWidth/2,gridWidth/2);
 	context.lineTo(i*gridWidth+gridWidth/2,totalSize-gridWidth/2);
 	context.stroke();
 	context.moveTo(gridWidth/2,i*gridWidth+gridWidth/2);
 	context.lineTo(totalSize-gridWidth/2,i*gridWidth+gridWidth/2);
 	context.stroke();
-	context.strokeStyle="#010101";
 	}
 	/*oneStep(0,0,true);*/
 	
@@ -73,7 +71,7 @@ var drawChessBoard=function(){
 
 //棋盘水印	
 var logo=new Image();
-logo.src="image/chessboard.jpg";
+logo.src="image/logo.png";
 logo.onload=function(){
 	context.drawImage(logo,0,0);
 	//chooseSize();
@@ -106,49 +104,8 @@ var oneStep=function(i,j,me){
 		}else if(!me){
 			chessBoard[i][j]=2;
 			}
-	/***落子标识，红色三角***/
-	$(".triangle").hide();
-	lastStep(i*gridWidth+gridWidth/2-7,j*gridWidth+gridWidth/2-9);
+	
 }
-
-//落子标志
-/*var lastStep=function(i,j,me){
-	context.moveTo(i*gridWidth+gridWidth/2,j*gridWidth+gridWidth/2-4);
-	context.lineTo(i*gridWidth+gridWidth/2+4,j*gridWidth+gridWidth/2+4);
-	context.lineTo(i*gridWidth+gridWidth/2-4,j*gridWidth+gridWidth/2+4);
-	context.lineTo(i*gridWidth+gridWidth/2,j*gridWidth+gridWidth/2-4);
-	context.lineJoin;
-	
-	}*/
-var index=0;
-var lastStep=function(i,j){
-	var triangle = document.createElement("canvas");
-	triangle.className="triangle";
-	triangle.id="triangle"+index++;
-	triangle.width = 14;
-	triangle.height = 14;
-	triangle.style.position = 'absolute';
-	triangle.style.left = i + 'px';
-	triangle.style.top = j + 'px';
-	triangle.style.WebkitTransform = 'translateZ(0)';
-	triangle.style.MozTransform = 'translateZ(0)';
-	triangle.style.OTransform = 'translateZ(0)';
-	triangle.style.msTransform = 'translateZ(0)';
-	triangle.style.transform = 'translateZ(0)';
-	
-	var cxt = triangle.getContext("2d");
-		cxt.fillStyle = "fe0000";
-		cxt.beginPath();
-		cxt.moveTo(7,0);
-		cxt.lineTo(14,14);
-		cxt.lineTo(0,14);
-		cxt.fillStyle="#fe0000";
-		cxt.fill();
-		
-	chessDiv.appendChild(triangle);
-	}
-
-
 
 //赢法数组（三维数组）
 var wins=[];
@@ -215,7 +172,6 @@ chess.onclick=function(e){
 	if(chessBoard[i][j]===0){//检查(i,j)处是否为空
 	if(me){
 		oneStep(i,j,true);//黑棋（手动）落一子
-/*		lastStep(i,j,true);*/
 		$("#tip p").html("黑棋落一子"+"("+i+","+j+")")
 		/**chessBoard[i][j]=1;//黑棋落子标识为1**/
 		}else{
@@ -293,7 +249,6 @@ var u=0,v=0;
 	}
 		console.log(max+" "+chessBoard[u][v]);
 		oneStep(u,v,false);//计算机在所计算出来的(u,v)处落白子
-/*		lastStep(u,v,false);*/
 		/**chessBoard[u][v]=2;//计算机在(u,v)处落子，标识为2**/
 		
 		$("#tip p").append("，白棋落一子"+"("+u+","+v+")");
@@ -306,15 +261,7 @@ var u=0,v=0;
 				myWin[k]=6;
 				if(computerWin[k]==5){
 					clearTimeout(t);
-					/*window.alert("You lose!Try again!耗时"+Math.floor(timeUsed/60)+"分"+timeUsed%60+"秒");*/
-					var r=confirm("You lose!Try again!耗时"+Math.floor(timeUsed/60)+"分"+timeUsed%60+"秒");
-					if (r==true)
- 					 {
-					  window.location.reload(true);
- 					 }
-					else
- 					 {
- 					 }
+					window.alert("You lose!Try again!耗时"+Math.floor(timeUsed/60)+"分"+timeUsed%60+"秒");
 					gameOver=true;
 					return;
 					}

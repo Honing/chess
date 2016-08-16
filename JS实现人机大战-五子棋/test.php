@@ -1,26 +1,26 @@
 <?php
-    header("Content-type:text/html;charset=utf-8");
-	$con = mysql_connect("localhost","root","");
-	$username=urldecode($_REQUEST['username']);
-	$password=$_REQUEST['password'];
-	$times=$_REQUEST['times'];
+/*********************************数据库连接************************************/
+$conn = @mysql_connect("localhost","root","");
+if (!$conn){
+    die("连接数据库失败：" . mysql_error());
+	echo("连接失败");
+}
+mysql_select_db("chess_db", $conn);
+//字符转换，读库
+mysql_query("set names utf8");
 
-	if (!$con)
-  {
-  die('Could not connect to mySQL: ' . mysql_error());
-  }
-	 
-	mysql_select_db("chesslogindb", $con);
-	mysql_query("set character set 'utf8'");//读库 
-	mysql_query("set names 'utf8'");//写库
+/************************检查数据库中是否含有该用户名******************************/
+$username = $_GET['username'];
 
-	$sql="INSERT INTO userinfo (username, password, times) VALUES ('".$username."','".$password."','".$times."')";
-	
-	if (!mysql_query($sql,$con))
-  {
-  	die('Error: ' . mysql_error());
-  }
-	echo "提交成功！";
+$sql="SELECT * FROM user_db WHERE username='".$username."'";
+$query=mysql_query($sql);
+$result=mysql_fetch_array($query);
+mysql_close($conn);
+if($result==true){
+echo 1;
+}else{
 
-	mysql_close($con);
+echo 0;}
+
+
 ?>
