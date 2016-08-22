@@ -1,17 +1,35 @@
 @charset "utf-8";
-/* CSS Document */
-/*人机大战之五子棋*/
-body{
-	background:url(../image/back.jpg)right bottom no-repeat;
-	background-size:cover;
-	}
-#welcome{
+/*人机大战之五子棋CSS Document*/
+body{margin:0;padding:0;}
+#wrapper{/*背景*/
 	position:absolute;
-	right:30px;
-	top:10px;
-	font-size:12px;
+	top:0;
+	left:0;
+	height:100%; 
+	width:100%; 
+	background:url(../image/back.jpg);
+	background-position: center 0; 
+	background-repeat: no-repeat; 
+	background-attachment:fixed; 
+	background-size: cover; 
+	-webkit-background-size: cover;/* 兼容Webkit内核浏览器如Chrome和Safari */ 
+	-o-background-size: cover;/* 兼容Opera */ 
+	zoom: 1; 
 	}
-#chess{
+#welcome{/*登录状态提示*/
+	position:absolute;
+	top:10px;
+	right:30px;
+	font-size:14px;
+	font-weight:bold;
+	}
+#personal{/*个人中心*/
+	position:absolute;
+	width:270px;
+	right:100px;
+	top:100px;
+	}
+#chess{/*棋盘*/
 	display:block;
 	/*margin:20px auto;*/
 	box-shadow:5px 5px 5px #999;
@@ -23,14 +41,14 @@ body{
 	margin: 20px auto;
 	position:relative;
 	}
-#tip p{
+#tip p{/*落子提示*/
 	color:#565656;
 	text-align:center;
 	display:block;
 	font-size:16px;
 	lineheight:16px;
 	}
-h1{
+h1{/*标题*/
 	font-size:28px;
 	lineheifht:28px;
 	}
@@ -44,16 +62,18 @@ h1{
 	position:fixed;
 	top:115px;
 	left:0px;
-	float:left;
-	}
-#countTime{
-	margin:0 auto;
+	float:left;	}
+#countTime{	
+	margin:0 auto;	
+	width:180px;}
+#startBtn{
 	width:180px;
+	text-align:center;
 	}
-.hide{
-	display:none;
+.hide{	
+	display:none;	}
+.show{	
+	display:block;	}
+.center{
+	margin:0 auto;
 	}
-.show{
-	display:block;
-	}
-

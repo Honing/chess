@@ -1,0 +1,44 @@
+@charset "utf-8";
+/*人机大战之五子棋登陆CSS Document*/
+body{
+	background:url(image/back.jpg) no-repeat;
+	}
+input .error{
+	border:1px solid #a10;	
+	}
+.error{
+	color:#a10;
+	border:0px;
+	}
+#wrapper{
+	width:200px;
+	margin:60px auto;
+	
+	}
+.left-btn{
+	width:40%;
+	position:relative;
+	left:10px;
+	}
+.right-btn{
+	width:40%;
+	position:relative;
+	right:-25px;
+	}
+p .success{
+	color:#3c763d;
+	}
+p .exclamation{
+	color:#f00;
+	}
+.input_result{
+	position:relative;
+	top:-23px;
+	left:175px;
+	}
+h1{
+	margin-bottom:30px;
+	}
+#noAccount{
+	text-align:center;
+	}

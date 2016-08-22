@@ -1,0 +1,38 @@
+@charset "utf-8";
+/*人机大战之五子棋注册CSS Document*/
+input .error{
+	border:1px solid #a10;	
+	}
+.error{
+	color:#a10;
+	border:0px;
+	}
+#wrapper{
+	width:250px;
+	margin:20px auto;
+	
+	}
+.left-btn{
+	width:40%;
+	position:relative;
+	left:10px;
+	}
+.right-btn{
+	width:40%;
+	position:relative;
+	right:-25px;
+	}
+p .success{
+	color:#3c763d;
+	}
+p .exclamation{
+	color:#f00;
+	}
+.input_result{
+	position:relative;
+	top:-23px;
+	left:225px;
+	}
+h1{
+	margin-bottom:30px;
+	}

@@ -2,53 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>人机大战之五子棋-登陆</title>
 <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <link href="libs/fontawesome/css/font-awesome.min.css" rel="stylesheet">
-<style>
-input .error{
-	border:1px solid #a10;	
-	}
-.error{
-	color:#a10;
-	border:0px;
-	}
-#wrapper{
-	width:200px;
-	margin:20px auto;
-	
-	}
-.left-btn{
-	width:40%;
-	position:relative;
-	left:10px;
-	}
-.right-btn{
-	width:40%;
-	position:relative;
-	right:-25px;
-	}
-p .success{
-	color:#3c763d;
-	}
-p .exclamation{
-	color:#f00;
-	}
-.input_result{
-	position:relative;
-	top:-23px;
-	left:175px;
-	}
-h1{
-	margin-bottom:30px;
-	}
-</style>
+<link href="css/login.css" type="text/css" rel="stylesheet">
 </head>
 
 <body ng-app="MyAppLogin" ng-controller="loginController">
 <div id="wrapper">
 <h1>欢迎登录</h1>
-<form name="loginForm" method="post" action="process2.php">
+<form name="loginForm" method="post" action="login.php">
 <div class="form-group" ng-class="{'has-success':loginForm.loginUsername.$valid}">
 	<label>用户名：</label>
     <input  class="form-control"
@@ -60,7 +23,7 @@ h1{
             required="required"
             type="text"
             />
-    <p class="fa fa-exclamation input_result exclamation" id="loginUsernameFa" ng-if="loginForm.loginUsername.$touched"></p>
+    <p class="fa fa-check input_result success" id="loginUsernameFa" ng-if="loginForm.loginUsername.$valid&&loginForm.loginUsername.$touched"></p>
 	<p class="error" id="tip"></p>
     <p class="error"
     ng-if="(loginForm.loginUsername.$error.minlength||
@@ -95,16 +58,18 @@ h1{
 </div>
 
 </form>
+<div id="noAccount">还没有账号？<a href="signup.html">注册一个</a></div>
 </div>
 
 <script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/angular.js/1.5.7/angular.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="./main2.js"></script>
+<script src="js/login.js"></script>
 <script type="text/javascript">
-//检查用户名是否存在
 var loginUsername=document.getElementById("loginUsername");
 var loginUsernameFa=document.getElementById("loginUsernameFa");
+var classVal = loginUsernameFa.getAttribute("class");
+
 var eventUtil={
 	//添加句柄，跨浏览器事件处理程序
 	addHandler:function(element,type,handler){
@@ -121,34 +86,32 @@ eventUtil.addHandler(loginUsername,'keyup',function(){
 	if(loginUsername.value.length>3&&loginUsername.value.length<=16){showTip(loginUsername.value);}
 	});
 
-function showTip(str)
-{
-var xmlhttp;
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-
-	if(xmlhttp.responseText==1){
-		document.getElementById("tip").innerHTML=" ";
-		}else{
-			document.getElementById("tip").innerHTML="该用户名不存在哦~点击";
-			var classVal = loginUsernameFa.getAttribute("class");
-			classVal=""+classVal+"";
-			classVal = classVal.replace("fa-exclamation","fa-check");
-			loginUsernameFa.setAttribute("class",classVal);
+function showTip(str){
+	var xmlhttp;
+	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+		}else{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 			}
-    }
-  }
-xmlhttp.open("GET","test.php?username="+str,true);
+		xmlhttp.onreadystatechange=function(){
+			if (xmlhttp.readyState==4 && xmlhttp.status==200){
+				if(xmlhttp.responseText==1){//返回1表示用户名可用
+					document.getElementById("tip").innerHTML="用户名正确";
+					classVal=""+classVal+"";
+					classVal = classVal.replace("fa-exclamation","fa-check");
+					loginUsernameFa.setAttribute("class",classVal);
+
+					}else{//返回0表示用户名不可用
+						document.getElementById("tip").innerHTML="该用户名不存在哦~";
+						/*var classVal = loginUsernameFa.getAttribute("class");*/
+						classVal=""+classVal+"";
+						classVal = classVal.replace("fa-check","fa-exclamation");
+						loginUsernameFa.setAttribute("class",classVal);
+
+						}
+    		}
+		}
+xmlhttp.open("GET","check.php?username="+str,true);
 xmlhttp.send();
 
 }

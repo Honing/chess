@@ -10,12 +10,13 @@
 
 
 //注销登录
-/*if($_GET['action'] == "logout"){
-    unset($_SESSION['userid']);
+if($_GET['action'] == "logout"){
     unset($_SESSION['username']);
-    echo '注销登录成功！点击此处 <a href="login.html">登录</a>';
+    /*echo '注销登录成功！点击此处 <a href="login.html">登录</a>';*/
+	header("Location:index.html");
+	
     exit;
-}*/
+}
 
 //登录
 if(!isset($_POST['submit'])){
@@ -34,11 +35,18 @@ if($result = mysql_fetch_array($check_query)){
 	session_start();
     $_SESSION['username'] = $username;
 	//$_SESSION['userid'] = $result['uid'];
-    echo $username,', 欢迎你！点击此处进入 <a href="index.html">人机五子棋大战</a><br />';
+    /*echo $username,', 欢迎你！点击此处进入 <a href="index.html">人机五子棋大战</a><br />';*/
     /*echo '点击此处 <a href="logout.php">注销</a> 登录！<br />';*/
-    exit;
-} else {
+	setcookie('username',urlencode($username),time()+3600);    //创建cookie
 
+	if(isset($_SESSION['username'])){    //使用isset()函数检测cookie变量是否已经被设置
+    /*echo "您好！".$username.',点击此处进入 <a href="index.html">人机五子棋大战</a><br />'; */
+	header("Location:index.html");
+    exit;
+	}else{
+    echo '登陆出错，请检查COOKIE并重新<a href="javascript:history.back(-1);">登录</a>';
+	}
+} else {
     exit('密码错误，登录失败！点击此处 <a href="javascript:history.back(-1);">返回</a> 重试');
 }
 ?>

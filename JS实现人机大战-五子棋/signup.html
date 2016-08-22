@@ -2,53 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>人机大战之五子棋-注册</title>
 <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <link href="libs/fontawesome/css/font-awesome.min.css" rel="stylesheet">
-<style>
-input .error{
-	border:1px solid #a10;	
-	}
-.error{
-	color:#a10;
-	border:0px;
-	}
-#wrapper{
-	width:250px;
-	margin:20px auto;
-	
-	}
-.left-btn{
-	width:40%;
-	position:relative;
-	left:10px;
-	}
-.right-btn{
-	width:40%;
-	position:relative;
-	right:-25px;
-	}
-p .success{
-	color:#3c763d;
-	}
-p .exclamation{
-	color:#f00;
-	}
-.input_result{
-	position:relative;
-	top:-23px;
-	left:225px;
-	}
-h1{
-	margin-bottom:30px;
-	}
-</style>
+<link href="css/signup.css" rel="stylesheet">
 </head>
 
 <body ng-app="MyApp" ng-controller="signUpController">
 <div id="wrapper">
 <h1>欢迎注册</h1>
-<form name="signUpForm" method="post" action="process.php">
+<form name="signUpForm" method="post" action="signup.php">
 <div class="form-group" ng-class="{'has-success':signUpForm.username.$valid}">
 	<label>用户名：</label>
     <input  class="form-control"
@@ -111,7 +74,7 @@ h1{
 <script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/angular.js/1.5.7/angular.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="./main.js"></script>
+<script src="js/signup.js"></script>
 <script type="text/javascript">
 var username=document.getElementById("username");
 var namefa=document.getElementById("namefa");
