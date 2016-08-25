@@ -10,6 +10,7 @@ var loseTimes=$("#losed");
 var nameOfUser=$("#username");
 var loginOrLogout=$("#loginOrLogout");
 var username=getCookie('username');
+var isVisitor=null;
 
 /***棋盘大小变量***/
 var gridSize=15;
@@ -337,7 +338,8 @@ function tellLose(){
 
 /****通过AJAX把输赢情况反馈到服务器****/
 function times(){
-	$.get('isWin.php',{'username':username,'isWin':isWin});
+	if(!isVisitor){
+	$.get('isWin.php',{'username':username,'isWin':isWin});}else{ }
 }
 /****通过Ajax获取数据库中保存的输赢情况信息用于初始化以及更新个人中心****/
 function getLoseTimes(){
@@ -380,7 +382,7 @@ if (username!=null && username!=""){
 	nameOfUser.text(decodeURI(username)+'，');
   	loginOrLogout.html('<a id="logout" href="login.php?action=logout">点此退出</a>');
   }else{
-	  alert("登录后才可以进入对战哦！");
+	  alert("登录后才可以进入对战哦！或者选择游客模式小试一下~");
 	  $("#startBtn input").attr("disabled","disabled");
 	  }
 }
@@ -394,11 +396,27 @@ $(document).on("click","#logout",function(e){
 
 /**********事件监听**********/
 $("#startBtn input").click(function(){
-	$("#startBtn").hide();
+	isVisitor=0;
+	$("#startBtn").parent().hide();
 	countTime.show();
 	timeCount();
 	});
 	
+$("#visitor input").click(function(){
+	isVisitor=1;
+	$("#visitor").parent().hide();
+	countTime.show();
+	timeCount();
+	})
+
+$("#personalIcon").click(function(){
+	$("#personalInfo").toggle(500);
+	})	
+$("#personalIcon").mouseover(function(){
+	$("#personalInfo").show(500);
+	}).mouseout(function(){
+	$("#personalInfo").hide(500);
+	});
 /*****选择难度（未实现）******/
 /*var settings=$("#settings");
 var ranks=document.getElementsByName("rank");

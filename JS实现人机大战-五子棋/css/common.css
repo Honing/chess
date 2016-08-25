@@ -1,79 +1,159 @@
 @charset "utf-8";
 /*人机大战之五子棋CSS Document*/
 body{margin:0;padding:0;}
-#wrapper{/*背景*/
-	position:absolute;
-	top:0;
-	left:0;
-	height:100%; 
-	width:100%; 
-	background:url(../image/back.jpg);
-	background-position: center 0; 
-	background-repeat: no-repeat; 
-	background-attachment:fixed; 
-	background-size: cover; 
-	-webkit-background-size: cover;/* 兼容Webkit内核浏览器如Chrome和Safari */ 
-	-o-background-size: cover;/* 兼容Opera */ 
-	zoom: 1; 
-	}
-#welcome{/*登录状态提示*/
-	position:absolute;
-	top:10px;
-	right:30px;
-	font-size:14px;
-	font-weight:bold;
-	}
-#personal{/*个人中心*/
-	position:absolute;
-	width:270px;
-	right:100px;
-	top:100px;
-	}
-#chess{/*棋盘*/
-	display:block;
-	/*margin:20px auto;*/
-	box-shadow:5px 5px 5px #999;
-	/*border:1px solid #efefef;*/
-	}
-#chessDiv{
-	width:450px;
-	height:450px;
-	margin: 20px auto;
-	position:relative;
-	}
-#tip p{/*落子提示*/
-	color:#565656;
-	text-align:center;
-	display:block;
-	font-size:16px;
-	lineheight:16px;
-	}
+p,h1,h2,h3{
+font-family:"微软雅黑";
+}
 h1{/*标题*/
-	font-size:28px;
-	lineheifht:28px;
-	}
-#settings{
-	background:#efefef;
-	border-radius:5px;
-	font: 20px/1.5 'Open Sans Condensed',sans-serif;
-	padding:70px 30px;
-	width:160px;
-	height:300px;
-	position:fixed;
-	top:115px;
-	left:0px;
-	float:left;	}
+font-size:28px;
+lineheifht:28px;
+}
+#wrapper{/*背景*/
+position:absolute;
+top:0;
+left:0;
+height:100%; 
+width:100%; 
+background:url(../image/back.jpg);
+background-position: center 0; 
+background-repeat: no-repeat; 
+background-attachment:fixed; 
+background-size: cover; 
+-webkit-background-size: cover;/* 兼容Webkit内核浏览器如Chrome和Safari */ 
+-o-background-size: cover;/* 兼容Opera */ 
+zoom: 1; 
+}
+#welcome{/*登录状态提示*/
+position:absolute;
+top:10px;
+right:30px;
+font-size:14px;
+font-weight:bold;
+}
+#personalIcon{/*个人中心*/
+position:absolute;
+width:64px;
+height:64px;
+right:40px;
+top:60px;
+}
+#personalInfo{
+background:rgba(142, 152, 207, 0.6);
+border-radius:5px;
+opacity:0.3;
+width:135px;
+height:200px;
+padding-left:15px;
+padding-bottom:15px;
+position:absolute;
+right:125px;
+top:60px;
+
+}
+.arrowbox{
+position:relative;
+}
+.backArrow{
+border-left: 20px solid rgba(142, 152, 207, 0.6); 
+top:20px;
+right:-20px;
+}
+.topArrow{
+top:20px;
+right:-23px;/*向右偏几个像素*/
+border-left: 20px solid #fff; /* bottom, add background color here */
+}
+.arrow-right{
+width: 0;
+height: 0;
+border-bottom: 20px solid transparent; /* left arrow slant */
+border-top: 20px solid transparent; /* right arrow slant */
+font-size: 0;
+line-height: 0;
+position:absolute;
+}
+#chess{/*棋盘*/
+display:block;
+/*margin:20px auto;*/
+box-shadow:5px 5px 5px #999;
+/*border:1px solid #efefef;*/
+}
+#chessDiv{
+width:450px;
+height:450px;
+margin: 20px auto;
+position:relative;
+}
+#tip p{/*落子提示*/
+color:#565656;
+text-align:center;
+display:block;
+font-size:16px;
+lineheight:16px;
+}
+.button {  
+display: inline-block;  
+zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */  
+*display: inline;  
+vertical-align: baseline;  
+margin: 0 2px;  
+outline: none;  
+cursor: pointer;  
+text-align: center;  
+text-decoration: none;  
+font: 14px/100% '微软雅黑';  
+padding: .5em 2em .55em;  
+text-shadow: 0 1px 1px rgba(0,0,0,.3);  
+-webkit-border-radius: .5em;   
+-moz-border-radius: .5em;  
+border-radius: .5em;  
+-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);  
+-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);  
+box-shadow: 0 1px 2px rgba(0,0,0,.2);  
+}  
+.button:hover {  
+text-decoration: none;  
+}  
+.button:active {  
+position: relative;  
+top: 1px;  
+} 
+.gray {  
+color: #e9e9e9;  
+border: solid 1px #555;  
+background: #6e6e6e;  
+background: -webkit-gradient(linear, left top, left bottom, from(#888), to(#575757));  
+background: -moz-linear-gradient(top,  #888,  #575757);  
+filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#888888', endColorstr='#575757');  
+}  
+.gray:hover {  
+background: #616161;  
+background: -webkit-gradient(linear, left top, left bottom, from(#757575), to(#4b4b4b));  
+background: -moz-linear-gradient(top,  #757575,  #4b4b4b);  
+filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#757575', endColorstr='#4b4b4b');  
+}  
+.gray:active {  
+color: #afafaf;  
+background: -webkit-gradient(linear, left top, left bottom, from(#575757), to(#888));  
+background: -moz-linear-gradient(top,  #575757,  #888);  
+filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#575757', endColorstr='#888888');  
+} 
 #countTime{	
-	margin:0 auto;	
-	width:180px;}
-#startBtn{
-	width:180px;
-	text-align:center;
-	}
-.hide{	
-	display:none;	}
-.show{	
-	display:block;	}
+margin:0 auto;	
+width:180px;}
+.hide{display:none;
+}
+.show{display:block;
+}
+.btnDiv{
+display:inline-block;
+width:180px;
+text-align:center;
+}
 .center{
-	margin:0 auto;
-	}
+margin:0 auto;
+text-align:center;
+}
+.fl{
+float:left;
+}

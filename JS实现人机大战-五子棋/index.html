@@ -9,19 +9,24 @@
 <body>
 <div id="wrapper">
 <h1 align="center">欢迎来到人机对战之五子棋</h1>
+<!--顶部欢迎及登录信息-->
 <div id="welcome"><span id="username"></span>您好，欢迎来到人机对战！<span id="loginOrLogout"><a href="login.html">点击登录</a>&nbsp;<a href="signup.html">注册</a></span></div>
-<div id="personal"><h2 align="center">个人中心</h2><p>用户：<span id="nameOfPlayer"></span>&nbsp;&nbsp;胜率：<span id="winRate"></span>%</p><p>已胜：<span id="won"></span>盘&nbsp;&nbsp;已负：<span id="losed"></span>盘</p></div>
-<div id="startBtn" class="center"><input type="button" align="center" value="开始对战"/></div>
+<!--个人中心-->
+<div id="personal">
+<div id="personalIcon"><img src="image/personal.png" title="个人中心" alt="人机大战个人中心"/></div>
+<div id="personalInfo" class="arrowBox hide"><h3>个人中心</h3><p>用户：<span id="nameOfPlayer"></span></p><p>胜率：<span id="winRate"></span>%</p><p>已胜：<span id="won"></span>盘</p><p>已负：<span id="losed"></span>盘</p><div class="arrow-right topArrow"></div><div class="arrow-right backArrow"></div></div>
+
+</div>
+<!--开始对战，计时器-->
+<div class="center">
+<div id="visitor" class="btnDiv"><input type="button" class="button gray" align="center" value="游客模式"/></div>
+<div id="startBtn" class="btnDiv"><input type="button" class="button gray" align="center" value="开始对战"/></div>
+</div>
 <div id="countTime" class="hide">已下<span id="steps">0</span>手，耗时<span id="min">0</span>分<span id="sec">0</span>秒</div>
 <!--<div id="settings"><p>请选择难度级别：</p><input id="rank1" name="rank" type="radio"> 8x8</input><br/><input id="rank2" type="radio" name="rank" checked="checked">15x15</input><br/><input id="rank3" name="rank" type="radio">19x19</input></div>-->
-
+<!--棋盘，音效，落子提示-->
 <audio id="soundEffect" src="sound/chesssound.mp3" preload="preload"></audio>
-
-<div id="chessDiv">
-<canvas id="chess" width="450px" height="450px">	
-</canvas>
-</div>
-
+<div id="chessDiv"><canvas id="chess" width="450px" height="450px"></canvas></div>
 <div id="tip"><p>请落子</p></div >
 <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script> 
 <script type="text/javascript" src="js/main-1.js"></script>
