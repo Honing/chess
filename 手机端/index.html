@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>JS实现人机大战之五子棋</title>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script type="text/javascript">
+function checkLog(){
+	/*if(!document.cookie){
+		alert("no cookie set!")
+		}else {
+			var cookieContent = str.split(";");
+			var cookieGroups = cookieContent[0].split("&");
+		  	var cell = cookieGroups[cookieGroups.length].split("=");
+	     		try{
+					document.getElementById("username").textContent = cell[1];
+		  		}catch(err){alert("error occurred!");}
+		}*/
+	}
+</script>
+</head>
+
+<body>
+<div class="titleBar"><div class="title"><h2>欢迎进入</h2><h1>五子棋大战</h1></div>
+<div class="titleBarTip-box">
+<div id="startBtn" class="titleBarTip"><input type="button" class="btn btn-blue" value="开始对局"/></div>
+<div id="countTime" class="titleBarTip hide">已下<span id="steps">0</span>手，耗时<span id="min">0</span>分<span id="sec">0</span>秒</div>
+</div>
+</div>
+<audio id="soundEffect" src="sound/chesssound.mp3" preload="preload"></audio>
+
+<div id="chessDiv">
+<canvas id="chess" width="400px" height="400px"></canvas>
+</div>
+
+<div id="tip"><p>提示：请您点击棋盘上方开始按钮进入游戏！</p></div >
+
+<div class="footBar d-box">
+<p>项目名称：基于js的五子棋人机大战&nbsp;&nbsp;BY:许银</p>
+</div>
+<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script> 
+<script type="text/javascript" src="js/main-1.js"></script>
+<script>
+
+/*(function (win){
+var doc = win.document,
+html = doc.documentElement;
+var baseWidth = 720,
+grids = baseWidth / 100,
+resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+recalc = function(){
+	var clientWidth = html.clientWidth || 320;
+	if( clientWidth > 720 ){ clientWidth = 720 };
+	html.style.fontSize = clientWidth /grids + 'px';
+};
+if (!doc.addEventListener) return;
+win.addEventListener(resizeEvt, recalc, false);
+doc.addEventListener('DOMContentLoaded', recalc, false);
+doc.addEventListener('touchstart', function () {}); 
+})(window);*/
+	  
+</script>
+</body>
+</html>
